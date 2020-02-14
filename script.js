@@ -83,7 +83,7 @@ function handlePage0() {
             p.style.textAlign = "left";
         }
 
-        if(window.matchMedia("(max-width: 768px)").matches) {
+        if(window.matchMedia("(max-width: 768px)").matches && window.matchMedia("(min-height: 640px)").matches ) {
             p.style.marginTop = "2rem";
         }
     })
