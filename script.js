@@ -116,7 +116,7 @@ function handlePage1() {
 function handlePage2() {
     screen.style.background = lime;
 
-    const strs = ["You moved out of <em>Malcolm</em>, into your new apartment.", "You spent <em>thousands of dollars</em> on interior design."];
+    const strs = ["You moved out of <em>Malcolm</em>, into the <em>Drake</em> apartments.", "You spent <em>thousands of dollars</em> on furnishing your new home."];
     const paras = []
     strs.forEach((str, i) => paras.push(createPara(str, "#000")));
     addParas(paras);
@@ -155,7 +155,7 @@ function handlePage3() {
 function handlePage4() {
     screen.style.background = green;
 
-    const strs = ["You've grieved for the loss of a loved one."]
+    const strs = ["You grieved for the loss of a loved one."]
     const paras = []
     strs.forEach((str, i) => paras.push(createPara(str, "#000")));
     addParas(paras);
@@ -240,12 +240,3 @@ function startPage() {
         }
     }
 }
-
-
-// var wind = window.matchMedia("(max-width: 768px)")
-// myFunction(x) // Call listener function at run time
-// wind.addListener(()) // Attach listener function on state changes
-
-// function changeFont() {
-
-// }
