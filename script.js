@@ -68,8 +68,8 @@ function handlePages() {
 
 function handlePage0() {
     screen.style.background = "#000";
-    const strs = ["Zoey Hou,", "Happy <span>Birthday</span>", "Valentine's Day", "Ready for your year wrapped?", "Relive and discover the biggest events of your year."];
-    const colors = [lime, green, "#fff", pink, lime];
+    const strs = ["Zoey Hou,", "Happy <span>Birthday</span> Valentine's Day", "Ready for your year wrapped?", "Relive and discover the biggest events of your year."];
+    const colors = [lime, green, pink, lime];
     const paras = [];
     strs.forEach((str, i) => paras.push(createPara(str, colors[i])));
     addParas(paras);
@@ -88,9 +88,9 @@ function handlePage0() {
         }
     })
 
-    paras[4].style.fontSize = "1.2rem";
-    paras[4].style.textAlign = "center";
-    paras[4].style.marginTop = "3rem";
+    paras[3].style.fontSize = "1.2rem";
+    paras[3].style.textAlign = "center";
+    paras[3].style.marginTop = "3rem";
 }
 
 function handlePage1() {
