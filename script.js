@@ -8,6 +8,7 @@ var back = document.querySelector(".buttons").firstElementChild;
 var fwd = document.querySelector(".buttons").lastElementChild;
 var screen = document.querySelector(".screen");
 handlePages();
+document.getElementById('player').pause();
 
 back.addEventListener("click", () => {
     if(index > 0) {
@@ -75,16 +76,21 @@ function handlePage0() {
 
     paras.forEach((p, i) => {
         p.style.width = "60%";
-        p.style.fontSize = "85px";
+        p.style.fontSize = "3rem";
+        p.style.top = "10%";
 
         if((i + 1) % 2 == 1) {
             p.style.textAlign = "left";
         }
+
+        if(window.matchMedia("(max-width: 768px)").matches) {
+            p.style.marginTop = "2rem";
+        }
     })
 
-    paras[4].style = "";
-    paras[4].setAttribute("class", "underline");
-
+    paras[4].style.fontSize = "1.2rem";
+    paras[4].style.textAlign = "center";
+    paras[4].style.marginTop = "3rem";
 }
 
 function handlePage1() {
@@ -96,35 +102,35 @@ function handlePage1() {
 
     paras.forEach(p => {
         p.style.width = "60%";
-        p.style.fontSize = "60px";
-        p.style.top = "25%";
+        p.style.fontSize = "2.5rem";
+        p.style.top = "30%";
     })
 
     document.querySelectorAll("em").forEach((e) => e.style.color = lime);
     paras[1].style.fontWeight = "500";
-    paras[1].style.marginTop = "50px";
-    paras[1].style.fontSize = "50px";
+    paras[1].style.marginTop = "2rem";
+    paras[1].style.fontSize = "2rem";
 
 }
 
 function handlePage2() {
     screen.style.background = lime;
 
-    const strs = ["You moved out of <em>Malcolm</em>, into your new apartment.", "You spent approximately <em>$1739</em> on interior design."];
+    const strs = ["You moved out of <em>Malcolm</em>, into your new apartment.", "You spent <em>thousands of dollars</em> on interior design."];
     const paras = []
     strs.forEach((str, i) => paras.push(createPara(str, "#000")));
     addParas(paras);
     
     paras.forEach(p => {
         p.style.width = "60%";
-        p.style.fontSize = "60px";
-        p.style.top = "25%";
+        p.style.fontSize = "2.5rem";
+        p.style.top = "30%";
     })
 
     document.querySelectorAll("em").forEach((e) => e.style.color = pink);
     paras[1].style.fontWeight = "500";
-    paras[1].style.marginTop = "50px";
-    paras[1].style.fontSize = "50px";
+    paras[1].style.marginTop = "2rem";
+    paras[1].style.fontSize = "2rem";
 }
 
 function handlePage3() {
@@ -136,14 +142,14 @@ function handlePage3() {
     
     paras.forEach(p => {
         p.style.width = "60%";
-        p.style.fontSize = "60px";
-        p.style.top = "25%";
+        p.style.fontSize = "2.5rem";
+        p.style.top = "30%";
     })
 
     document.querySelectorAll("em").forEach((e) => e.style.color = lime);
     paras[1].style.fontWeight = "500";
-    paras[1].style.marginTop = "50px";
-    paras[1].style.fontSize = "50px";
+    paras[1].style.marginTop = "2rem";
+    paras[1].style.fontSize = "2rem";
 }
 
 function handlePage4() {
@@ -156,8 +162,8 @@ function handlePage4() {
     
     paras.forEach(p => {
         p.style.width = "60%";
-        p.style.fontSize = "60px";
-        p.style.top = "25%";
+        p.style.fontSize = "2.5rem";
+        p.style.top = "35%";
     })
 }
 
@@ -172,8 +178,8 @@ function handlePage5() {
     
     paras.forEach(p => {
         p.style.width = "60%";
-        p.style.fontSize = "60px";
-        p.style.top = "25%";
+        p.style.fontSize = "2.5rem";
+        p.style.top = "40%";
     })
 }
 
@@ -188,14 +194,14 @@ function handlePage6() {
     paras.forEach(p => {
         p.style.color = pink;
         p.style.width = "60%";
-        p.style.fontSize = "60px";
+        p.style.fontSize = "2.5rem";
         p.style.top = "25%";
     })
 
     document.querySelectorAll("em").forEach((e) => e.style.color = lime);
     paras[1].style.fontWeight = "500";
-    paras[1].style.marginTop = "50px";
-    paras[1].style.fontSize = "50px";
+    paras[1].style.marginTop = "2rem";
+    paras[1].style.fontSize = "2rem";
     var ems = document.querySelectorAll("em");
 }
 
@@ -234,3 +240,12 @@ function startPage() {
         }
     }
 }
+
+
+// var wind = window.matchMedia("(max-width: 768px)")
+// myFunction(x) // Call listener function at run time
+// wind.addListener(()) // Attach listener function on state changes
+
+// function changeFont() {
+
+// }
