@@ -91,7 +91,7 @@ span {
 text-decoration: line-through #a33333;
 }
 
-em {
+em, i {
 font-style: normal;
 }
 

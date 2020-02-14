@@ -3,10 +3,11 @@ var lime = "#d3f971";
 var green = "#4b917d";
 
 var index = 0;
-var max_index = 6;
+var max_index = 7;
 var back = document.querySelector(".buttons").firstElementChild;
 var fwd = document.querySelector(".buttons").lastElementChild;
 var screen = document.querySelector(".screen");
+var interval;
 handlePages();
 document.getElementById('player').pause();
 
@@ -25,6 +26,7 @@ fwd.addEventListener("click", () => {
 });
 
 function handlePages() {
+    clearInterval(interval);
     if(index == 0) {
         back.style.visibility = "hidden";
         fwd.style.visibility = "visible";
@@ -63,6 +65,9 @@ function handlePages() {
         case 6:
             handlePage6();
             break;
+        case 7:
+            handlePage7();
+            break;
     }
 }
 
@@ -94,8 +99,17 @@ function handlePage0() {
 }
 
 function handlePage1() {
+    var now = new Date().getTime();
+    var oldDate = new Date("May 10, 2019 18:32:00").getTime();
+    var timeleft = now - oldDate;
+        
+    var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
     screen.style.background = green;
-    const strs = ["You met your first boyfriend.", "You've been together for <em>279 days</em>, surviving <em>5 fights</em>."];
+    const strs = ["You met your first boyfriend.", `You've been together for <em>${days} days</em>, <em>${hours} hours</em>, <em>${minutes} minutes</em>, and <em>${seconds} seconds</em>, surviving <em>5 fights</em>.`];
     const paras = []
     strs.forEach((str, i) => paras.push(createPara(str, "#000")));
     addParas(paras);
@@ -111,6 +125,25 @@ function handlePage1() {
     paras[1].style.marginTop = "2rem";
     paras[1].style.fontSize = "2rem";
 
+    interval = setInterval(function() {
+
+        var now = new Date().getTime();
+        var timeleft = now - oldDate;
+            
+        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+        var times = [days, hours, minutes, seconds];
+        var timeStrings = ["days", "hours", "minutes", "seconds"];
+        document.querySelectorAll("em").forEach((e, i) => {
+            if(i < 4) {
+                e.innerHTML = times[i] + " " + timeStrings[i];
+            }
+        });
+
+    }, 1000);
 }
 
 function handlePage2() {
@@ -153,6 +186,25 @@ function handlePage3() {
 }
 
 function handlePage4() {
+    screen.style.background = "#000";
+    const strs = ["You developed a healthier image of your body.", "You went from <em>??? lbs</em> to <em>??? lbs</em>, exercising almost <em>4 days</em> a week."];
+    const paras = []
+    strs.forEach((str, i) => paras.push(createPara(str, lime)));
+    addParas(paras);
+    
+    paras.forEach(p => {
+        p.style.width = "60%";
+        p.style.fontSize = "2.5rem";
+        p.style.top = "30%";
+    })
+
+    document.querySelectorAll("em").forEach((e) => e.style.color = pink);
+    paras[1].style.fontWeight = "500";
+    paras[1].style.marginTop = "2rem";
+    paras[1].style.fontSize = "2rem";
+}
+
+function handlePage5() {
     screen.style.background = green;
 
     const strs = ["You grieved for the loss of a loved one."]
@@ -168,7 +220,7 @@ function handlePage4() {
 }
 
 
-function handlePage5() {
+function handlePage6() {
     screen.style.background = green;
 
     const strs = ["You've been very strong."]
@@ -183,10 +235,10 @@ function handlePage5() {
     })
 }
 
-function handlePage6() {
+function handlePage7() {
     screen.style.background = "#000";
 
-    const strs = ["You've <em>accomplished</em>, <em>experienced</em>, and <em>grown</em> so much over the past year.", "What will your <em>20s</em> have in store?"];
+    const strs = ["You've <em>experienced</em>, <em>accomplished</em>, and <em>grown</em> so much over the past year.", "What will your <em>20s</em> have in store?"];
     const paras = []
     strs.forEach((str, i) => paras.push(createPara(str, "#000")));
     addParas(paras);
