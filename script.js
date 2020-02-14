@@ -3,6 +3,7 @@ var lime = "#d3f971";
 var green = "#4b917d";
 
 var index = 0;
+var max_index = 6;
 var back = document.querySelector(".buttons").firstElementChild;
 var fwd = document.querySelector(".buttons").lastElementChild;
 var screen = document.querySelector(".screen");
@@ -16,11 +17,29 @@ back.addEventListener("click", () => {
 });
 
 fwd.addEventListener("click", () => {
-    index++;
+    if(index < max_index) {
+        index++;
+    }
     handlePages();
 });
 
 function handlePages() {
+    if(index == 0) {
+        back.style.visibility = "hidden";
+        fwd.style.visibility = "visible";
+
+    } 
+    else if(index == max_index) {
+        back.style.visibility = "visible";
+        fwd.style.visibility = "hidden";
+
+    } 
+    else {
+        back.style.visibility = "visible";
+        fwd.style.visibility = "visible";
+
+    }
+
     switch(index) {
         case 0:
             handlePage0();
@@ -47,7 +66,6 @@ function handlePages() {
 }
 
 function handlePage0() {
-    back.style.visibility = "hidden";
     screen.style.background = "#000";
     const strs = ["Zoey Hou,", "Happy <span>Birthday</span>", "Valentine's Day", "Ready for your year wrapped?", "Relive and discover the biggest events of your year."];
     const colors = [lime, green, "#fff", pink, lime];
@@ -70,7 +88,6 @@ function handlePage0() {
 }
 
 function handlePage1() {
-    back.style.visibility = "visible";
     screen.style.background = green;
     const strs = ["You met your first boyfriend.", "You've been together for <em>279 days</em>, surviving <em>5 fights</em>."];
     const paras = []
@@ -93,7 +110,7 @@ function handlePage1() {
 function handlePage2() {
     screen.style.background = lime;
 
-    const strs = ["You moved out of <em>Malcolm</em>, into your new apartment.", "You spent <em>$1479</em> on interior design."];
+    const strs = ["You moved out of <em>Malcolm</em>, into your new apartment.", "You spent approximately <em>$1739</em> on interior design."];
     const paras = []
     strs.forEach((str, i) => paras.push(createPara(str, "#000")));
     addParas(paras);
@@ -199,9 +216,12 @@ function startPage() {
     const name = document.querySelector("#name").value.toLowerCase();
     const dob = document.querySelector("#dob").value;
     if((name == "zoey" || name == "zoey hou") && dob == "2000-02-08") {
-        document.querySelector("#form").style.display = "none";
-        document.querySelector(".container").style.display = "initial";
         document.getElementById('player').play();
+        setTimeout(() => { 
+            document.querySelector("#form").style.display = "none";
+            document.querySelector(".container").style.display = "initial";
+            //document.getElementById('player').play();
+        }, 900);
     }
     else {
         if(!document.querySelector(".error")) {
