@@ -116,7 +116,7 @@ function handlePage1() {
 function handlePage2() {
     screen.style.background = lime;
 
-    const strs = ["You moved out of <em>Malcolm</em>, into the <em>Drake</em> apartments.", "You spent <em>thousands of dollars</em> on furnishing your new home."];
+    const strs = ["You moved out of <em>Malcolm</em>, into your new apartment.", "You took approximately <em>2639 pictures</em>, documenting your college memories."];
     const paras = []
     strs.forEach((str, i) => paras.push(createPara(str, "#000")));
     addParas(paras);
@@ -186,7 +186,7 @@ function handlePage5() {
 function handlePage6() {
     screen.style.background = "#000";
 
-    const strs = ["You've <em>accomplished</em>, <em>experienced</em>, and <em>grown</em> so much over the past year.", "What will your <em>20s</em> have in store for you?"];
+    const strs = ["You've <em>accomplished</em>, <em>experienced</em>, and <em>grown</em> so much over the past year.", "What will your <em>20s</em> have in store?"];
     const paras = []
     strs.forEach((str, i) => paras.push(createPara(str, "#000")));
     addParas(paras);
