@@ -109,7 +109,7 @@ function handlePage1() {
     var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
     screen.style.background = green;
-    const strs = ["You met your first boyfriend.", `You've been together for <em>${days} days</em>, <em>${hours} hours</em>, <em>${minutes} minutes</em>, and <em>${seconds} seconds</em>, surviving <em>5 fights</em>.`];
+    const strs = ["You met your <em>first boyfriend</em>.", `You've been together for <em id="date">${days} days</em>, <em id="date">${hours} hours</em>, <em id="date">${minutes} minutes</em>, and <em id="date">${seconds} seconds</em>, surviving <em>5 fights</em>.`];
     const paras = []
     strs.forEach((str, i) => paras.push(createPara(str, "#000")));
     addParas(paras);
@@ -137,12 +137,7 @@ function handlePage1() {
 
         var times = [days, hours, minutes, seconds];
         var timeStrings = ["days", "hours", "minutes", "seconds"];
-        document.querySelectorAll("em").forEach((e, i) => {
-            if(i < 4) {
-                e.innerHTML = times[i] + " " + timeStrings[i];
-            }
-        });
-
+        document.querySelectorAll("#date").forEach((e, i) => e.innerHTML = times[i] + " " + timeStrings[i]);
     }, 1000);
 }
 
@@ -236,7 +231,7 @@ function handlePage6() {
 }
 
 function handlePage7() {
-    screen.style.background = "#000";
+    screen.style.background = lime;
 
     const strs = ["You've <em>experienced</em>, <em>accomplished</em>, and <em>grown</em> so much over the past year.", "What will your <em>20s</em> have in store?"];
     const paras = []
@@ -244,13 +239,12 @@ function handlePage7() {
     addParas(paras);
     
     paras.forEach(p => {
-        p.style.color = pink;
         p.style.width = "60%";
         p.style.fontSize = "2.5rem";
         p.style.top = "25%";
     })
 
-    document.querySelectorAll("em").forEach((e) => e.style.color = lime);
+    document.querySelectorAll("em").forEach((e) => e.style.color = pink);
     paras[1].style.fontWeight = "500";
     paras[1].style.marginTop = "2rem";
     paras[1].style.fontSize = "2rem";
